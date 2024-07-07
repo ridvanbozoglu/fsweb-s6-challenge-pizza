@@ -1,0 +1,127 @@
+.footer-container {
+    background-color: #1A1A1A;
+    color: white;
+    padding: 81px 58px;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 60px;
+}
+
+/* iletişim menü */
+
+h1 {
+    margin-bottom: 30px;
+    font-family: "Londrina Solid";
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 50px; 
+}
+
+.ul-iletisim{
+    gap: 22px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.ul-iletisim li{
+    display: flex;
+    gap: 10px;
+}
+
+/* copy-right */
+
+.copy-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-top: 1px rgb(59, 53, 53) solid;
+
+}
+
+.copy-right p {
+    font-family:"Barlow", sans-serif ;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+}
+
+
+
+/* Hot menü */
+
+h3 {
+    font-family:"Barlow", sans-serif ;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.p-hot-menu {
+    font-family:"Barlow", sans-serif ;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.hot-menu-ul{
+    margin-top: 30px;
+    padding: 2px 0 5.4px 0;
+    gap: 7.4px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* instagram img */
+
+.instagram-ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    list-style-type: none; 
+    padding: 0;
+    margin-top: 20px;
+    
+  }
+  
+  .instagram-ul li {
+    text-align: center; 
+  }
+  
+  .ins-img {
+    max-width: 100%; 
+    height: auto; 
+  }
+  
+
+
+@media (min-width: 1080px) {
+    .inner-container {
+        flex-direction: row;
+        max-width: 1080px;
+    }
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    .copy-right {
+        width: 100%;
+    
+    }
+  }
+
+  @media (min-width: 720px) and (max-width: 1080px) {
+    .instagram-ul {
+        display: flex;
+        flex-direction: column;
+      }
+
+  }

@@ -1,0 +1,73 @@
+.home-header-container{
+    background-color:#CE2829;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:71px ;
+    background-image: url("/public/assets/iteration-1/home-banner.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-family: "Londrina Solid";
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.header-div {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 590px;
+}
+h2{
+  font-weight: 300;
+  font-size: 86px;
+  line-height: 92px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.button {
+    background-color: var(--button-color);
+    width: 193px;
+    height: 56px;
+    border-radius: 50px;
+    color: black;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.button p{
+    font-family: "Barlow", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 56px;
+}
+
+.firsati-kacirma {
+    font-family: "Satisfy";
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+    display: none;
+    color: #FDC913;
+}
+
+
+@media (min-width: 480px) {
+    .home-header-container{
+        padding-top:51px ;
+    }
+    .firsati-kacirma {
+        display: block;
+    }
+
+  }
