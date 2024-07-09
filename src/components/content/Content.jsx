@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./content.css";
+import Card from "../ui/Card";
 
 const productImagesUp = [
   {
@@ -50,6 +51,30 @@ const coupons = [
   },
 ];
 
+const pizzas = [
+  {
+    name: "Terminal Pizza",
+    rating: 4.9,
+    radius: 200,
+    price: 60,
+    imgUrl: "../../../public/assets/iteration-2/pictures/food-1.png",
+  },
+  {
+    name: "Position Absoulute Pizza",
+    rating: 4.9,
+    radius: 200,
+    price: 60,
+    imgUrl: "../../../public/assets/iteration-2/pictures/food-2.png",
+  },
+  {
+    name: "useEffect Tavuklu Burger",
+    rating: 4.9,
+    radius: 200,
+    price: 60,
+    imgUrl: "../../../public/assets/iteration-2/pictures/food-3.png",
+  },
+];
+
 const Content = () => {
   return (
     <div className="content-container">
@@ -74,15 +99,72 @@ const Content = () => {
           <div className="coupones-container">
             <div className="big-coupon">
               <img src={coupons[0].imgSrc} alt="hi" />
+              <div className="coupon-content">
+                <h4 className="first-h4">{coupons[0].p1}</h4>
+                <p>{coupons[0].p2}</p>
+                <div className="coupon-button">SİPARİŞ VER</div>
+              </div>
             </div>
             <div className="small-coupons-container">
-              <div className="small-coupon"></div>
-              <div className="small-coupon"></div>
+              <div className="small-coupon">
+                <img src={coupons[1].imgSrc} alt="hi" />
+                <div className="coupon-content">
+                  <h4 className="second-coupon">{coupons[1].p1}</h4>
+                  <div className="coupon-button">SİPARİŞ VER</div>
+                </div>
+              </div>
+              <div className="small-coupon">
+                <img src={coupons[2].imgSrc} alt="hi" />
+                <div className="coupon-content">
+                  <h3>
+                    <span>Çoooook</span> hızlı npm gibi kurye
+                  </h3>
+                  <div className="coupon-button">SİPARİŞ VER</div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="product-selection">
-            <div className="header"></div>
-            <div className="scroll-products product-cards"></div>
+            <div className="scroll-products-container">
+              <div className="content-scroll-explanation">
+                <p className="red-paragraph">en çopk paketlenen menüler</p>
+                <p className="acıktıran-doyuran-kodlar">
+                  Acıktıran Kodlara Doyuran Lezzeetler
+                </p>
+              </div>
+              <div className="content-selection">
+                <div className="small-product-images-bottom">
+                  <ul className="content-top-ul-bottom">
+                    {productImagesUp.map((element) => {
+                      return (
+                        <li
+                          className="content-top-list-bottom"
+                          key={element.p2}
+                        >
+                          <img
+                            className="small-product-img"
+                            src={element.imgSrc}
+                            alt="image"
+                          />
+                          <p className="product-description">{element.p2}</p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+              <div className="product-cards">
+                <ul className="content-items-container-ul">
+                  {pizzas.map((element) => {
+                    return (
+                      <li key={element.name}>
+                        <Card {...element} />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

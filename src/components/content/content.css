@@ -42,25 +42,227 @@
 
 /* rest */
 
+
 .content-inner-container {
     width: 100%;
-    background-color: red;
+    background-color: #FAF7F2;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 58px 0 58px;
+    padding: 40px 58px 40px 58px;
 }
 
-.big-coupon{
-    width: 100%;
+/* coupon */
+
+
+.big-coupon {
+    position: relative;
+}
+
+.small-coupon {
+    position: relative;
+    overflow: hidden;    
 }
 
 .big-coupon img{
-    width: 100px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
 }
 
+.small-coupon img{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    object-fit: cover;
+    min-height: 300px;
+}
+
+.coupon-content {
+    color: white;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.first-h4 {
+    font-size: 68px;
+    font-family: "Quattrocento", serif;
+    line-height: 72px;
+    font-weight: 700;
+}
+
+.coupon-content p {
+    font-size: 20px;
+    font-family: "Barlow", serif;
+    line-height: 27px;
+    font-weight: 600;
+}
+
+.coupon-button {
+    border-radius: 50px;
+    background: white;
+    color: red;
+    width: 138px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.content-h4 {
+    color: white;
+}
+.coupon-content h3 span {
+    color: red;
+}
+
+.coupon-content h3{
+    color: black;
+}
+
+.small-coupon .coupon-content{
+    width: 60%;
+}
+
+.coupon-content h4.second-coupon {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+}
+
+/* last part */
+
+.product-selection {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.red-paragraph {
+    color: #CE2829;
+    text-align: center;
+    font-family: "satisfy";
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+}
+
+.acıktıran-doyuran-kodlar{
+    font-family: "Barlow";
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 56px;
+    text-align: center;
+}
+
+.small-product-images-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;  
+}
+
+.content-top-ul-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 32px;
+    gap: 20px;
+    width: 100%;
+}
+
+.content-top-list-bottom{
+    padding: 12px 20px 12px 20px ;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    transition: all 0.5s ease-in-out;
+}
+
+.content-top-list-bottom:hover{
+    background-color: #292929;
+    color: white;
+}
+
+.content-top-list-bottom .active{
+    background-color: #292929;
+    color: white;
+}
+
+/* pizza cards */
+
+.item-card-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content-items-container-ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.item-card-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-price-radius-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.item-price {
+    font-family: "Barlow";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.item-radius {
+    font-family: "Barlow";
+    font-size: 16px;
+    line-height: 29px;
+    font-weight: 600;
+}
+
+.item-rating {
+    font-family: "Barlow";
+    font-size: 16px;
+    line-height: 29px;
+    font-weight: 600;
+}
+
+.item-card-name {
+    font-family: "Barlow";
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 29px;
+}
+
+
+
 @media (min-width: 1080px) {
+
     .content-top-list{
+        display: flex;
+        align-items: center;
+        flex-basis:auto;
+    }
+    .content-top-list-bottom{
         display: flex;
         align-items: center;
         flex-basis:auto;
@@ -69,7 +271,25 @@
         padding-left: 0;
         padding-right: 0;
     }
-    .small-product-images {
-        padding: 0 ;
+    .content-top-ul-bottom{
+        padding-left: 0;
+        padding-right: 0;
     }
+    .small-product-images {
+        padding: 0;
+    }
+    .coupones-container {
+        display: flex;
+    }
+    .content-items-container-ul{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .big-coupon img{
+        height: 100%;
+    }
+
   }
+
+  
+

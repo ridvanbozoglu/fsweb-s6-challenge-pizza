@@ -9,6 +9,7 @@
     background-image: url("/public/assets/iteration-1/home-banner.png");
     background-position: bottom;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
