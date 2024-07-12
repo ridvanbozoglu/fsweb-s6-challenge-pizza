@@ -9,11 +9,12 @@ const SuccessContent = (props) => {
         <p className="firsati-kacirma">Fırsatı kaçırma</p>
         <h2>SİPARİŞ ALINDI</h2>
       </div>
+      <h4>{data.itemName}</h4>
       <div className="success-summary-container">
-        <h4>{data.itemName}</h4>
         <p>Boyut: {data.boyut}</p>
+        <p>Hamur: {data.hamur}</p>
         <p>
-          Ekstralar:{" "}
+          Ekstralar:{"  "}
           {data.extra.map((element, index) => (
             <span key={element}>
               {element}
@@ -24,8 +25,14 @@ const SuccessContent = (props) => {
       </div>
       <div className="success-siparis-toplamı-container">
         <h3>Sipariş Toplamı</h3>
-        <p>Seçimler : {data.extra.length * 5}₺</p>
-        <p>Toplam : {data.fiyat}₺</p>
+        <div>
+          <p className="success-price">Seçimler </p>
+          <p>{data.extra.length * 5}₺</p>
+        </div>
+        <div>
+          <p className="success-price">Toplam </p>
+          <p>{data.fiyat}₺</p>
+        </div>
       </div>
     </div>
   );

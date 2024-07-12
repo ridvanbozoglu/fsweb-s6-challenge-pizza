@@ -269,6 +269,7 @@
     .content-top-list{
         display: flex;
         align-items: center;
+        justify-content: center;
         flex-basis:auto;
     }
     .content-top-list-bottom{

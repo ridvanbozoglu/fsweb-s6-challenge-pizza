@@ -5,6 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 60px;
+    padding-right: 60px;
     
 }
 
@@ -65,3 +67,10 @@
     color: #5F5F5F;
     margin-bottom: 50px;
 }
+
+@media (max-width: 540px) {
+    .order-image{
+        display: none;
+    }
+
+  }

@@ -8,6 +8,7 @@ const OrderExplanation = (props) => {
     <div className="order-explanation-container">
       <div className="order-explanation-inner-container">
         <img
+          className="order-image"
           src="public/assets/iteration-2/pictures/form-banner.png"
           alt="half pizza"
         />

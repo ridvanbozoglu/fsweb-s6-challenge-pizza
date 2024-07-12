@@ -1,5 +1,6 @@
 .succes-route-container{
     min-height: 100vh;
+    color: white;
 }
 
 .success-content-container {
@@ -8,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 120px;
 }
 
 .successcontent-succes-page {
@@ -15,11 +17,58 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid white;
+}
+
+.successcontent-succes-page h2{
+    font-family: "Roboto Condensed";
+    margin: 50px auto 50px auto;
+    text-align: center;
+    font-weight: 300;
+    font-size: 86px;
+    line-height: 92px;
+    letter-spacing: 1.5px;
+
 }
 
 .success-summary-container {
     display: flex;
     flex-direction: column;
+    
+    justify-content: center;
+    gap: 20px;
+    width: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: "Barlow";
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+.success-content-container h4{
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 29px;
+}
+
+.success-siparis-toplamı-container {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px #FAF7F2 solid;
+    border-radius: 6px;
+    padding: 50px;
+}
+
+.success-siparis-toplamı-container>div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
 }
