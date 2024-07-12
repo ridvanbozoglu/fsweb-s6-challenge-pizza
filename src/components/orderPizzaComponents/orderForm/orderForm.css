@@ -1,0 +1,40 @@
+.order-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-form-inner-container {
+    overflow: hidden;
+    width: 532px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.order-form-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+.submit-button{
+    width: 100%;
+}
+
+.adet-container {
+    display: flex;
+    align-items: center;
+}
+
+.adet {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px gray solid;
+    border-radius: 5px;
+}

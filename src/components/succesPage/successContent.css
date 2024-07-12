@@ -1,0 +1,25 @@
+.succes-route-container{
+    min-height: 100vh;
+}
+
+.success-content-container {
+    background-color: #CE2829;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.successcontent-succes-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-summary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

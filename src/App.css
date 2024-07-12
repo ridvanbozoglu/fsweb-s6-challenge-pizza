@@ -6,7 +6,26 @@
 
 :root {
     --button-color: #FDC913;
-  }
+}
+
+
+/* TopBar */
+
+.top-bar-container {
+  background-color: #CE2829;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 138px;
+}
+
+.top-bar-container .top-bar-logo{
+  font-family: "Londrina Solid";
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 50px;
+  color: white;
+}
   
 
 

@@ -12,7 +12,7 @@
     background-size: cover;
 }
 
-h1 {
+h1.teknolojik-yemekler {
     margin-bottom: 30px;
     font-family: "Londrina Solid";
     font-weight: 400;
@@ -44,6 +44,13 @@ h2{
     color: black;
     cursor: pointer;
     margin-top: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+.button:hover {
+    background-color: #292929;
+    color: white;
+
 }
 
 .button p{

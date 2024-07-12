@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./content.css";
-import Card from "../ui/Card";
+import Card from "../../ui/Card";
+import { useNavigate } from "react-router-dom";
 
 const productImagesUp = [
   {
@@ -76,9 +77,24 @@ const pizzas = [
 ];
 
 const Content = () => {
+  const navigate = useNavigate();
+  const [isActive, setIsActive] = useState(productImagesUp[0].p2);
+
+  const handleClick = () => {
+    navigate("/order");
+  };
+
+  const toggleActive = (key) => {
+    if (isActive === key) {
+      setIsActive(null);
+    } else {
+      setIsActive(key);
+    }
+  };
+
   return (
-    <div className="content-container">
-      <div className="small-product-images">
+    <main className="content-container">
+      <section className="small-product-images">
         <ul className="content-top-ul">
           {productImagesUp.map((element) => {
             return (
@@ -93,16 +109,18 @@ const Content = () => {
             );
           })}
         </ul>
-      </div>
-      <div className="content-inner-container">
+      </section>
+      <section className="content-inner-container">
         <div className="content-2inner-container">
-          <div className="coupones-container">
+          <section className="coupones-container">
             <div className="big-coupon">
               <img src={coupons[0].imgSrc} alt="hi" />
               <div className="coupon-content">
                 <h4 className="first-h4">{coupons[0].p1}</h4>
                 <p>{coupons[0].p2}</p>
-                <div className="coupon-button">SİPARİŞ VER</div>
+                <div className="coupon-button" onClick={handleClick}>
+                  SİPARİŞ VER
+                </div>
               </div>
             </div>
             <div className="small-coupons-container">
@@ -123,23 +141,26 @@ const Content = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="product-selection">
+          </section>
+          <section className="product-selection">
             <div className="scroll-products-container">
-              <div className="content-scroll-explanation">
-                <p className="red-paragraph">en çopk paketlenen menüler</p>
+              <header className="content-scroll-explanation">
+                <p className="red-paragraph">en çok paketlenen menüler</p>
                 <p className="acıktıran-doyuran-kodlar">
                   Acıktıran Kodlara Doyuran Lezzeetler
                 </p>
-              </div>
+              </header>
               <div className="content-selection">
                 <div className="small-product-images-bottom">
                   <ul className="content-top-ul-bottom">
                     {productImagesUp.map((element) => {
                       return (
                         <li
-                          className="content-top-list-bottom"
+                          className={`content-top-list-bottom ${
+                            isActive === element.p2 ? "active" : ""
+                          }`}
                           key={element.p2}
+                          onClick={() => toggleActive(element.p2)}
                         >
                           <img
                             className="small-product-img"
@@ -165,10 +186,10 @@ const Content = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </section>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
