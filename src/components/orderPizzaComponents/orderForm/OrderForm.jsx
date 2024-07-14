@@ -107,7 +107,7 @@ const OrderForm = (props) => {
           <section>
             <h5>Boyut Seç</h5>
             <ButtonGroup>
-              {data.boyut.map((element) => (
+              {data.boyut.map((element, index) => (
                 <Button
                   color="primary"
                   key={element}
