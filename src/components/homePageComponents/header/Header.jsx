@@ -8,15 +8,16 @@ const Header = () => {
   const handleClick = () => {
     navigate("/order");
   };
+
   return (
     <div className="home-header-container">
       <div className="header-div">
         <h1 className="teknolojik-yemekler">Teknolojik Yemekler</h1>
         <p className="firsati-kacirma">Fırsatı kaçırma</p>
         <h2>KOD ACIKTIRIR PİZZA, DOYURUR</h2>
-        <div className="button" onClick={handleClick}>
+        <button className="button" onClick={handleClick}>
           <p>Acıktım</p>
-        </div>
+        </button>
       </div>
     </div>
   );

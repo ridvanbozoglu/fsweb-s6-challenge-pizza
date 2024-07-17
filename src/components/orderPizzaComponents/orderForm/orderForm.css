@@ -24,11 +24,39 @@
 
 .submit-button{
     width: 100%;
+    background-color: #FDC913;
+    border: none;
+    border-radius: 6px;
+}
+
+.submit-button p {
+    font-family: "Barlow";
+    font-size: 18px;
+    font-weight: 700;
+    color: #292929;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.finish-order {
+    display: flex;
+    align-items: flex-start;
+}
+
+.order-summary {
+    flex: 1;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    background-color: #FAF7F2;
 }
 
 .adet-container {
     display: flex;
     align-items: center;
+    border: #D9D9D9 solid 1px;
+    border-radius: 6px;
+    margin-right: 10px;
 }
 
 .adet {
@@ -39,4 +67,176 @@
     justify-content: center;
     border: 1px gray solid;
     border-radius: 5px;
+    background-color: #FDC913;
 }
+.adet-text {
+    width: 38px;
+    height: 38px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fiyat-seçimler-gosterim-container {
+    padding: 42px 49px 42px 49px;
+}
+
+.radio-button {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAF7F2;
+    border-radius: 100%;
+    transition: all 0.5s;
+}
+
+.radio-button:hover {
+    background-color: 
+    #FFEECC;
+}
+
+.radio-button.active {
+    background-color: 
+    #FFEECC;
+}
+
+.radio-button-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.drop-down-select {
+    background-color: #FAF7F2;
+    height: 56px;
+    width: 260px;
+    border-radius: 6px;
+    border: none;
+    padding: 15px;
+}
+
+.boyut-hamur-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.hamur-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-form-h5 {
+    margin-bottom: 15px;
+}
+
+.form-extra-malzemeler>.extra-malzeme-adet{
+    font-family: "Barlow";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 56px;
+    color: #5F5F5F;
+    margin: 0;
+
+}
+
+.form-option {
+    background-color: red;
+}
+
+.form-option {
+    height: 30px;
+}
+
+.malzemeler-checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+}
+
+.malzemeler-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 168px;
+}
+  
+.extra-checkbox {
+    width: 45px;
+    height: 45px;
+    background-color: #FAF7F2;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: "Barlow";  
+    font-size: 16px;
+}
+
+.extra-checkbox.checked {
+    background-color: #FDC913;
+}
+
+.d-block-extra {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: red;
+}
+
+.d-block-name {
+
+    font-size: 12px;
+    color: red;
+}
+
+
+.ad-not-container>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.ad-not-container input {
+    background-color: #FAF7F2;
+    border: none;
+    height: 56px;
+    border-radius: 6px;
+    padding-left: 20px;
+}
+
+.ad-not-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+.order-summary h3 {
+    font-family: "Barlow";
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #292929;
+    margin-bottom: 32px;
+}
+
+.fiyat-seçimler-gosterim-container>p {
+    font-family: "Barlow";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #5F5F5F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+

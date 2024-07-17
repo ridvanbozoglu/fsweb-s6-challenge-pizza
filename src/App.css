@@ -26,6 +26,13 @@
   line-height: 50px;
   color: white;
 }
+
+.seperator {
+  height: 1px;
+  background-color: #5F5F5F;
+  margin-top: 56px;
+  margin-bottom: 56px;
+}
   
 
 

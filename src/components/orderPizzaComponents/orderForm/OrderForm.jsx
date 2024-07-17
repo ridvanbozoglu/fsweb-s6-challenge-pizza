@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  Form,
   FormGroup,
   Label,
   Input,
@@ -11,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import "./orderForm.css";
 import postOrder from "/src/api/axios.js";
+import Seperator from "../../ui/Seperator";
 
 const initialSelection = {
   custumerName: "",
@@ -39,21 +39,31 @@ const OrderForm = (props) => {
   const [isValid, setIsValid] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "extra") {
-      setOrder((prevOrder) => {
+    const { name, value, type, id } = e.target;
+
+    setOrder((prevOrder) => {
+      if (name === "extra") {
         const newExtras = prevOrder.extra.includes(value)
           ? prevOrder.extra.filter((item) => item !== value)
           : [...prevOrder.extra, value];
         return { ...prevOrder, extra: newExtras };
-      });
-    } else {
-      setOrder({
-        ...order,
-        [name]: value,
-      });
-    }
+      } else if (type === "radio") {
+        return {
+          ...prevOrder,
+          [name]: id,
+        };
+      } else {
+        return {
+          ...prevOrder,
+          [name]: value,
+        };
+      }
+    });
   };
+
+  useEffect(() => {
+    console.log(order);
+  }, [order]);
 
   const handleAdetChange = (type) => {
     setOrder((prevOrder) => ({
@@ -98,119 +108,164 @@ const OrderForm = (props) => {
       ...prevOrder,
       fiyat: calculatedPrice,
     }));
-  }, [order.extra, order.adet, order.custumerName, data.price]);
+  }, [
+    order.extra,
+    order.adet,
+    order.custumerName,
+    data.price,
+    data.not,
+    data.boyut,
+  ]);
 
   return (
     <div className="order-form-container">
       <div className="order-form-inner-container">
-        <Form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <section>
-            <h5>Boyut Seç</h5>
-            <ButtonGroup>
-              {data.boyut.map((element, index) => (
-                <Button
-                  color="primary"
-                  key={element}
-                  name="boyut"
-                  value={element}
-                  outline
-                  onClick={handleChange}
-                  active={order.boyut === element}
+            <div className="boyut-hamur-container">
+              <div className="boyut-container">
+                <h5 className="order-form-h5">Boyut Seç</h5>
+                <fieldset className="radio-button-container">
+                  {data.boyut.map((element) => (
+                    <div key={element}>
+                      <input
+                        id={element}
+                        name="boyut"
+                        hidden
+                        type="radio"
+                        onChange={handleChange}
+                        checked={order.boyut === element}
+                      />
+                      <label
+                        htmlFor={element}
+                        className={`radio-button ${
+                          order.boyut === element && "active"
+                        }`}
+                      >
+                        {element[0]}
+                      </label>
+                    </div>
+                  ))}
+                </fieldset>
+              </div>
+              <div className="hamur-container">
+                <label htmlFor="exampleSelect">
+                  <h5 className="order-form-h5">Hamur Seç</h5>
+                </label>
+                <select
+                  id="exampleSelect"
+                  name="hamur"
+                  value={order.hamur}
+                  onChange={handleChange}
+                  className="drop-down-select"
                 >
-                  {element}
-                </Button>
-              ))}
-            </ButtonGroup>
-            <FormGroup>
-              <Label for="exampleSelect">Hamur Seç</Label>
-              <Input
-                id="exampleSelect"
-                name="hamur"
-                type="select"
-                value={order.hamur}
-                onChange={handleChange}
-              >
-                {data.hamur.map((element) => (
-                  <option key={element} value={element}>
+                  {data.hamur.map((element) => (
+                    <option key={element} value={element}>
+                      {element}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="form-extra-malzemeler">
+              <h5 className="order-form-h5">Ekstra Malzemeler</h5>
+              <p className="extra-malzeme-adet">
+                En Fazla 10 malzeme seçebilirsiniz. 5₺
+              </p>
+              <div className="malzemeler-checkbox-container">
+                {data.ekMalzemeler.map((element) => (
+                  <label
+                    htmlFor={element}
+                    key={element}
+                    className="malzemeler-container"
+                  >
+                    <div
+                      className={`extra-checkbox ${
+                        order.extra.includes(element) ? "checked" : ""
+                      }`}
+                    >
+                      ✔
+                    </div>
                     {element}
-                  </option>
+                    <input
+                      type="checkbox"
+                      id={element}
+                      name="extra"
+                      className="form-option"
+                      value={element}
+                      onChange={handleChange}
+                      checked={order.extra.includes(element)}
+                      hidden
+                    />
+                  </label>
                 ))}
-              </Input>
-            </FormGroup>
-            <h5>Ekstra Malzemeler</h5>
-            <p>En Fazla 10 malzeme seçebilirsiniz. 5₺</p>
-            <ButtonGroup className="order-form-checkbox">
-              {data.ekMalzemeler.map((element) => (
-                <Button
-                  key={element}
-                  color="primary"
-                  name="extra"
-                  type="button"
-                  value={element}
-                  onClick={handleChange}
-                  active={order.extra.includes(element)}
-                >
-                  {element}
-                </Button>
-              ))}
-            </ButtonGroup>
-            {errors.extra && (
-              <FormFeedback className="d-block">{errors.extra}</FormFeedback>
-            )}
+              </div>
+
+              {errors.extra && <p className="d-block-extra">{errors.extra}</p>}
+            </div>
           </section>
-          <FormGroup>
-            <Label for="exampleAd">Ad Soyad</Label>
-            <Input
-              id="exampleAd"
-              placeholder="Ad Soyad"
-              name="custumerName"
-              type="text"
-              value={order.custumerName}
-              onChange={handleChange}
-              invalid={!!errors.name}
-            />
-            {errors.name && <FormFeedback>{errors.name}</FormFeedback>}
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleText">Not</Label>
-            <Input
-              id="exampleText"
-              placeholder="Siparişine eklemek istediğin bir not var mı?"
-              name="not"
-              type="textarea"
-              value={order.not}
-              onChange={handleChange}
-            />
-          </FormGroup>
+          <div className="ad-not-container">
+            <div className="isim-container">
+              <label htmlFor="exampleAd">Ad Soyad</label>
+              <input
+                id="exampleAd"
+                placeholder="Ad Soyad"
+                name="custumerName"
+                type="text"
+                value={order.custumerName}
+                onChange={handleChange}
+              />
+              {errors.name && <p className="d-block-name">{errors.name}</p>}
+            </div>
+            <div className="not-container">
+              <label htmlFor="exampleText">Sipariş Notu</label>
+              <input
+                id="exampleText"
+                placeholder="Siparişine eklemek istediğin bir not var mı?"
+                name="not"
+                type="textarea"
+                value={order.not}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <Seperator />
           <div className="finish-order">
             <div className="adet-container">
-              <Button
+              <button
                 className="adet"
                 onClick={() => handleAdetChange("decrement")}
                 color="primary"
                 disabled={order.adet <= 1}
               >
                 -
-              </Button>
-              <div className="adet">{order.adet}</div>
-              <Button
+              </button>
+              <div className="adet-text">{order.adet}</div>
+              <button
                 className="adet"
                 onClick={() => handleAdetChange("increment")}
                 color="primary"
               >
                 +
-              </Button>
+              </button>
             </div>
             <div className="order-summary">
-              <h3>Sipariş Toplamı</h3>
-              <p>Seçimler : {order.extra.length * 5}₺</p>
-              <p>Toplam : {order.fiyat}₺</p>
+              <div className="fiyat-seçimler-gosterim-container">
+                <h3>Sipariş Toplamı</h3>
+                <p>
+                  <p>Seçimler :</p> <p> {order.extra.length * 5}₺</p>
+                </p>
+                <p>
+                  <p style={{ color: "red" }}>Toplam :</p>{" "}
+                  <p style={{ color: "red" }}>{order.fiyat}₺</p>
+                </p>
+              </div>
+              <button className="submit-button" disabled={!isValid}>
+                <p>{!isValid ? "Disabled" : "Submit"}</p>
+              </button>
             </div>
-            <Button className="submit-button" disabled={!isValid}>
-              {!isValid ? "Disabled" : "Submit"}
-            </Button>
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   );
